@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const app = express()
 app.use(cors({
 
-    origin:["https://deploy-mern-1whq.versel.app"],
+    origin:[""],
     methods: ["POST","GET"],
     credentials:true
 }));
