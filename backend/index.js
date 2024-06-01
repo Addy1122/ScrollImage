@@ -3,11 +3,16 @@ const cors = require("cors")
 const mongoose = require('mongoose');
 
 const app = express()
-app.use(cors())
+app.use(cors({
+
+    origin:["https://deploy-mern-1whq.versel.app"],
+    methods: ["POST","GET"],
+    credentials:true
+}));
 
 app.use(express.json())
 
-mongoose.connect("mongodb://127.0.0.1:27017/todo").then(()=>console.log("DB success"))
+mongoose.connect('mongodb+srv://adline2211:XV1bmRdpVnU1Y56r@cluster0.bzz7qxa.mongodb.net/todo?retryWrites=true&w=majority&appName=Cluster0).then(()=>console.log("DB success")')
 .catch(()=>console.log("DB failed"))
 const Fruit =mongoose.model("Fruit",{name:String},"fruit")
 
