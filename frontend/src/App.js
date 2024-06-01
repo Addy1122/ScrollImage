@@ -10,7 +10,7 @@ function App(){
 
   useEffect(()=>{
    
-  axios.get("http://localhost:5001/fruitlist").then(function(data){
+  axios.get("https://todo-week11-server.vercel.app/fruitlist").then(function(data){
    
      setfruit(data.data)
   })
@@ -26,7 +26,7 @@ function App(){
       alert('Item name cannot be empty');
       return;
     }
-    axios.post("http://localhost:5001/addfruit",{newfruit:enteredvalue})
+    axios.post("https://todo-week11-server.vercel.app/addfruit",{newfruit:enteredvalue})
    .then(function(response){ setfruit([...fruit,response.data])
     setevalue("")
     console.log(fruit)})
