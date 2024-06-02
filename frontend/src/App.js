@@ -33,7 +33,7 @@ function App(){
 }
 function deleteitem(id){
 console.log(id)
-axios.post("http://localhost:5001/delfruit",{did:id})
+axios.post("https://todo-week11-server.vercel.app/delfruit",{did:id})
 setfruit(fruit.filter(item => item._id !== id))
 }
 console.log(fruit)
