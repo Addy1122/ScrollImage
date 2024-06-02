@@ -5,15 +5,14 @@ const mongoose = require('mongoose');
 const app = express()
 app.use(cors({
 
-    origin:['https://todo-week11-client.vercel.app'],
+    origin:[''],
     methods: ["POST","GET"],
     credentials:true
 }));
 
-mongoose.connect('mongodb+srv://adline2211:adlinemongo@cluster0.bzz7qxa.mongodb.net/todo?retryWrites=true&w=majority&appName=Cluster0).then(()=>console.log("DB success")')
-.catch(()=>console.log("DB failed"))
-const Fruit =mongoose.model("Fruit",{name:String},"fruit")
+mongoose.connect('mongodb+srv://adline2211:adlinemongo@cluster0.bzz7qxa.mongodb.net/todo?retryWrites=true&w=majority&appName=Cluster0')
 
+const Fruit =mongoose.model("Fruit",{name:String},"fruit")
 
 app.get("/fruitlist",function(req,res){
     // res.send("Hi there!")
