@@ -10,7 +10,7 @@ function App(){
 
   useEffect(()=>{
    
-  axios.get("https://todo-week11-server.vercel.app/fruitlist").then(function(data){
+  axios.get("https://todo-week11.onrender.com/fruitlist").then(function(data){
    
      setfruit(data.data)
   })
@@ -26,14 +26,14 @@ function App(){
       alert('Item name cannot be empty');
       return;
     }
-    axios.post("https://todo-week11-server.vercel.app/addfruit",{newfruit:enteredvalue})
+    axios.post("https://todo-week11.onrender.com/addfruit",{newfruit:enteredvalue})
    .then(function(response){ setfruit([...fruit,response.data])
     setevalue("")
     console.log(fruit)})
 }
 function deleteitem(id){
 console.log(id)
-axios.post("https://todo-week11-server.vercel.app/delfruit",{did:id})
+axios.post("https://todo-week11.onrender.com/delfruit",{did:id})
 setfruit(fruit.filter(item => item._id !== id))
 }
 console.log(fruit)
