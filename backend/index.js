@@ -1,12 +1,16 @@
 const express = require("express")
 const cors = require("cors")
 const mongoose = require('mongoose');
+let bodyParser = require('body-parser');
 
 const app = express()
+
+var jsonParser = bodyParser.json()
+
 app.use(cors({
 
-    origin:['https://todo-week11-1.onrender.com'],
-    methods: ["POST","GET"],
+    origin:['https://todo-week11-1.onrender.com', 'http://localhost:3000'],
+    methods: ["POST","GET", "PUT", "DELETE"],
     credentials:true
 }));
 
@@ -27,8 +31,9 @@ app.get("/fruitlist",function(req,res){
     
 })
 
-app.post("/addfruit",function(req,res)
+app.post("/addfruit",jsonParser, function(req,res)
 {
+    console.log(req.body.newfruit)
     var newfruit=req.body.newfruit
 
     const newFruit = new Fruit({
@@ -36,15 +41,16 @@ app.post("/addfruit",function(req,res)
     });
 
     newFruit.save().then((data)=>{console.log("saveds sucess")
-    res.send(data)})
+    res.send(data)
+    })
 });
 
 
-app.post("/delfruit",function(req,res){
+app.post("/delfruit",jsonParser, function(req,res){
     
     var did=req.body.did
-    Fruit.findByIdAndDelete(did).then(function(ddata){
-        //console.log(ddata)
+    Fruit.findByIdAndDelete(did).then(function(data){
+        res.send(data)
     })
 })
 
