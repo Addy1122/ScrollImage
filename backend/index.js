@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const app = express()
 app.use(cors({
 
-    origin:[''],
+    origin:['https://todo-week11-1.onrender.com'],
     methods: ["POST","GET"],
     credentials:true
 }));
