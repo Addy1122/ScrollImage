@@ -14,6 +14,10 @@ mongoose.connect('mongodb+srv://adline2211:adlinemongo@cluster0.bzz7qxa.mongodb.
 
 const Fruit =mongoose.model("Fruit",{name:String},"fruit")
 
+app.get("/",function(req,res){
+    res.send("Hi there!")
+});
+
 app.get("/fruitlist",function(req,res){
     // res.send("Hi there!")
     Fruit.find().then(function(retdata){
